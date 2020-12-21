@@ -80,7 +80,7 @@ void complexOp(complex<float> A, string op, complex<float> B){
     }
 
 
-    cout << "Normal Operation = " <<  ResNum << endl;
+    cout << "Normal Operation Results = " <<  ResNum << endl;
     cout << print(A, B, Res, op);
 }
 
@@ -382,7 +382,7 @@ string subComplexAlg(string strA, string strB) {
 //--------------------------------------------------------------------------------//
 //--------------------------------[Multiplication]--------------------------------//
 
-//Helper function for multiComplex algorithm
+//Helper function for the inital multiComplex algorithm
 string initMulti(string res, string A, string B){
 
     if (B.size() == 0)
@@ -406,6 +406,7 @@ string multiComplex(double A, double B){
 }
 
 
+//Accommodate for integer and decimal number before performing multiComplex algorithm
 string multiComplex(string A, string B){
 
     int posDotA = (signed long int) A.find_first_of('.');
@@ -426,7 +427,6 @@ string multiComplex(string A, string B){
     if (C == '1') res = initMulti(A , A, B.substr(0, B.size()-1));    
     else          res = initMulti("", A, B.substr(0, B.size()-1));
 
-    // Multiply two doubleing points work only for small numbers
     if (posDotA != -1 && posDotB != -1) {
         if (res.size() < (A.size() + B.size()) ) res = string((A.size()+ B.size()-res.size()) , '0') + res;
 
@@ -444,8 +444,8 @@ string multiComplex(string A, string B){
     return adjustComplex(res);
 }
 
-//
 
+//
 void toArr(string str, int A[]) {
     int size = str.size();
 
@@ -456,8 +456,9 @@ void toArr(string str, int A[]) {
 
     for (int i = 0; i < N_MAX; i++) A[i] = 0;
 
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size; i++) {
         A[size - 1 - i] = (str[i] == '1') ? 1 : 0;
+    }
 }
 
 
@@ -551,11 +552,13 @@ string divComplex(string strA, string strB){
 //--------------------------------------------------------------------------------//
 //--------------------------------[Conversion]------------------------------------//
 
+//Convert number from CBNS to decimal
 complex<float> CBNStoDec(string str){
 
     int posDot = (signed long int) str.find_first_of('.');
     complex<float> Num(0,0);
 
+    //compute intager or decimal number
     if (posDot == -1){ 
         for (int i = 0; i < (signed long int) str.size(); i++)
             if (str[i] == '1') Num = Num + (complex<float>) pow(complex<float>(-1, 1), (str.size()-1-i));
@@ -573,6 +576,7 @@ complex<float> CBNStoDec(string str){
 }
 
 
+//Convert decimal number to CBNS number 
 string decToCBNS(double n) {
 
     if (n == (int)n) return decToCBNS((int)n);
@@ -621,6 +625,7 @@ string decToCBNS(double n) {
 }
 
 
+//Convert integer number to CBNS number 
 string decToCBNS(int n) 
 { 
     static string ROM[4] = {"0000", "0001", "1100", "1101"};
@@ -663,7 +668,7 @@ string decToCBNS(int n)
     
 } 
 
-
+//Converting the real & imag part with their signed to be combined in one CBNS number
 string decToCBNS(complex<float> n) 
 {
     string strReal, strImag;
@@ -685,6 +690,8 @@ string decToCBNS(complex<float> n)
 
 //--------------------------------------------------------------------------------//
 //--------------------------------[Functions for web]-----------------------------//
+
+//This function is for web print-out 
 string printToCBNS(complex<float> C)
 {
 
@@ -694,6 +701,7 @@ string printToCBNS(complex<float> C)
 
 }
 
+//This function is for web print-out 
 string printToComplex(string str)
 {
 
