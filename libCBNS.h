@@ -21,6 +21,7 @@ string addComplex(string A, string B);
 string addComplex(double A, double B);
 string addComplex(complex<float> A, complex<float> B);
 string addComplexAlg(string strA, string strB);
+void propagate (int A[], int idx);
 
 string subComplex(string strA, string strB);
 string subComplex(int A, int B);
@@ -30,6 +31,7 @@ string subComplexAlg(string strA, string strB);
 
 string multiComplex(string A, string B);
 string multiComplex(double A, double B);
+string initMulti(string res, string A, string B);
 string multiComplex(complex<float> A, complex<float> B);
 
 int DivK(string str);
@@ -51,6 +53,7 @@ string ArrToStr(int A[]);
 //--------------------------------------------------------------------------------//
 //--------------------------------[Adjust\Print operations]-----------------------//
 
+//Compare Normal and CBNS results
 void complexOp(complex<float> A, string op, complex<float> B){
     
     string Res;
@@ -77,11 +80,12 @@ void complexOp(complex<float> A, string op, complex<float> B){
     }
 
 
-    cout << "Normal Results = " <<  ResNum << endl;
+    cout << "Normal Operation = " <<  ResNum << endl;
     cout << print(A, B, Res, op);
 }
 
 
+//Make the array into a string to be print out
 string ArrToStr(int A[]){
     string resultStr = "";
     for (int i = N_MAX-1; i >= 0; i--){
@@ -99,6 +103,7 @@ template <typename T> string tostr(const T& t) {
 } 
 
 
+//The default print out for CBNS operation
 string print(complex<float> A, complex<float> B, string Res, string operation)
 {
 
@@ -113,6 +118,8 @@ string print(complex<float> A, complex<float> B, string Res, string operation)
 
 }
 
+
+//Adjust numbers precision
 complex<float> adjFPComplex(complex<float> Num){
     if (abs(Num.real()) < 1e-10) Num = complex<float>(0,Num.imag());
     if (abs(Num.imag()) < 1e-10) Num = complex<float>(Num.real(), 0);
@@ -121,6 +128,7 @@ complex<float> adjFPComplex(complex<float> Num){
 }
 
 
+//Make the results of CBNS easy to readout
 string adjustComplex(string str){
     //cout << endl << "adjustComplex: " << str << endl;
     if ((signed long int) str.find_first_of("1") == -1 && (signed long int) str.find_first_of('.') == -1)
@@ -165,12 +173,12 @@ string addComplex(complex<float> A, complex<float> B){
     return addComplex(decToCBNS(A), decToCBNS(B));
 }
 
-
 string addComplex(double A, double B){
     return addComplex(decToCBNS(A), decToCBNS(B));
 }
 
 
+//Accommodate for integer and decimal number before performing addComplex algorithm
 string addComplex(string strA, string strB) {
 
     if (strA.empty()) return strB;
@@ -221,6 +229,8 @@ string addComplex(string strA, string strB) {
     
 }
 
+
+//Propagate the carry-out bit when overflow occurs
 void propagate (int A[], int idx) {
     if (idx >= N_MAX) return;
     A[idx]++;
@@ -239,6 +249,7 @@ void propagate (int A[], int idx) {
 }
 
 
+//Perform CBNS addition operation
 string addComplexAlg(string strA, string strB) {
     int A[N_MAX]; int B[N_MAX];
     toArr(strA, A);
@@ -264,7 +275,6 @@ string addComplexAlg(string strA, string strB) {
 
     }
     
-
     return ArrToStr(A);
 }
 
@@ -282,6 +292,7 @@ string subComplex(complex<float> A, complex<float> B){
     return subComplex(decToCBNS(A), decToCBNS(B));
 }
 
+//Accommodate for integer and decimal number before performing subComplex algorithm
 string subComplex(string strA, string strB) {
 
     if (strA.empty()) return strB;
@@ -341,8 +352,9 @@ string subComplex(string strA, string strB) {
 }
 
 
+//Perform CBNS subtraction operation
 string subComplexAlg(string strA, string strB) {
-    int A[N_MAX]; int B[N_MAX];// int C[N_MAX]; int res[N_MAX];
+    int A[N_MAX]; int B[N_MAX];
     toArr(strA, A);
     toArr(strB, B);
 
@@ -369,7 +381,9 @@ string subComplexAlg(string strA, string strB) {
 
 //--------------------------------------------------------------------------------//
 //--------------------------------[Multiplication]--------------------------------//
-string multiHelp(string res, string A, string B){
+
+//Helper function for multiComplex algorithm
+string initMulti(string res, string A, string B){
 
     if (B.size() == 0)
         return res;
@@ -378,8 +392,8 @@ string multiHelp(string res, string A, string B){
     A = A + string(1, '0');
 
 
-    if (C == '1') return multiHelp(addComplex(res, A) , A, B.substr(0, B.size()-1));
-    else          return multiHelp(addComplex(res, ""), A, B.substr(0, B.size()-1));
+    if (C == '1') return initMulti(addComplex(res, A) , A, B.substr(0, B.size()-1));
+    else          return initMulti(addComplex(res, ""), A, B.substr(0, B.size()-1));
 }
 
 
@@ -409,8 +423,8 @@ string multiComplex(string A, string B){
     char C = B.back();
 
     string res;
-    if (C == '1') res = multiHelp(A , A, B.substr(0, B.size()-1));    
-    else          res = multiHelp("", A, B.substr(0, B.size()-1));
+    if (C == '1') res = initMulti(A , A, B.substr(0, B.size()-1));    
+    else          res = initMulti("", A, B.substr(0, B.size()-1));
 
     // Multiply two doubleing points work only for small numbers
     if (posDotA != -1 && posDotB != -1) {
@@ -670,7 +684,7 @@ string decToCBNS(complex<float> n)
 
 
 //--------------------------------------------------------------------------------//
-//--------------------------------[Functions for web]-----------------------//
+//--------------------------------[Functions for web]-----------------------------//
 string printToCBNS(complex<float> C)
 {
 
