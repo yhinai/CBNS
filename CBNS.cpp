@@ -7,6 +7,7 @@
 
 using namespace std;  
 
+
 int main(){
 
     string strTest = decToCBNS(complex<float>(2.35,0));
