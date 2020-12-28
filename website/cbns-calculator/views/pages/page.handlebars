@@ -1,0 +1,131 @@
+
+
+
+
+
+
+
+
+
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+	<br>
+	<section id="cover">
+    <div id="cover-caption">
+        <div id="container" class="container col-sm-7 offset-sm-1 text-center">
+            <div class="row">
+                <div class="col-sm-10 offset-sm-1 text-center">
+                    <h1 class="display-4">CBNS Calculator</h1>
+                    <div class="info-form">
+                        <form action="" class="form-inline justify-content-center" name="calc" id="userForm" method="POST">
+
+                            <div class="row center-block">
+                                <textarea  type="text" name="input_text"  class="form-control offset-sm-1 col-sm-10" rows="7" id="input_text">{{answer}}</textarea>
+                                <div class="w-100"></div>
+                                <div class="col">
+                                    <div class="text-center select_button">
+                                        <div class="form-group required">
+                                            <input  style="display: none;" type="text" class="form-control" id="operation" name="operation" aria-describedby="operationHelp" value={{{form.operation}}}>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center select_button">
+                                        
+                                        <input type="text" id="A_real" name="A_real" class="btn btn-outline-info col-sm-3" onchange="if(form.A_real  == '0') { form.A_real = ''; }" value={{{form.A_real}}}></input> +
+                                        <input type="text" id="A_imag" name="A_imag" class="btn btn-outline-info col-sm-3" onchange="if(form.A_imag  == '0') { form.A_imag = ''; }" value={{{form.A_imag}}}></input> j
+                                        <span style='margin-left: 30px;'></span>
+                                        <button type="submit" class="btn btn-info col-sm-1" style="width: 12.499999995%; flex: 0 0 12.499%;max-width: 12.499%;" id="add_op" value="add_op">+</button>
+                                        <button type="submit" class="btn btn-info col-sm-1" style="width: 12.499999995%; flex: 0 0 12.499%;max-width: 12.499%;" id="sub_op" value="sub_op">-</button>
+
+                                    </div>
+
+                                    
+                                    <div class="text-center select_button">
+                                        <input type="text" id="B_real" name="B_real" class="btn btn-outline-info col-sm-3" onload="if(this.value  == '0') { this.value = ''; }" value={{{form.B_real}}}></input> +
+                                        <input type="text" id="B_imag" name="B_imag" class="btn btn-outline-info col-sm-3" onload="if(this.value  == '0') { this.value = ''; }" value={{{form.B_imag}}}></input> j
+                                        <span style='margin-left: 30px;'></span>
+                                        <button type="submit" class="btn btn-info col-sm-1" style="width: 12.499999995%; flex: 0 0 12.499%;max-width: 12.499%;" id="multi_op" value="multi_op">x</button>
+                                        <button type="submit" class="btn btn-info col-sm-1" style="width: 12.499999995%; flex: 0 0 12.499%;max-width: 12.499%;" id="div_op" value="div_op">/</button>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center select_button ">
+                                        <input type="text" id="C_real" name="C_real" class="btn btn-outline-success col-sm-3" value={{{form.C_real}}}></input> + 
+                                        <input type="text" id="C_imag" name="C_imag" class="btn btn-outline-success col-sm-3" value={{{form.C_imag}}}></input> j 
+                                        <span style='margin-left: 30px;'></span>
+                                        <button type="submit" class="btn btn-success col-sm-3" id="toCBNS" value="toCBNS">Convert to CBNS</button>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center select_button">
+                                        <input type="text" id="str" name="str" class="btn btn-outline-dark col-sm-5" value={{{form.str}}}></input> CBNS
+                                        <span style='margin-left: 80px;'></span>
+                                        <button type="submit" class="btn btn-dark col-sm-3" id="toComlex" value="toComlex">Convert to Complex</button>
+                                    </div>
+                                    <hr>
+                                    <div class="text-center select_button" style="margin-bottom: none">
+                                        <a name="" class="btn btn-danger col-sm-2"  href="javascript:clearText()">CLEAR ALL</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+<script type="text/javascript">
+
+    document.getElementById('add_op').addEventListener('click', add_op);
+    document.getElementById('sub_op').addEventListener('click', sub_op);
+    document.getElementById('multi_op').addEventListener('click', multi_op);
+    document.getElementById('div_op').addEventListener('click', div_op);
+    document.getElementById('toCBNS').addEventListener('click', toCBNS);
+    document.getElementById('toComlex').addEventListener('click', toComlex);
+
+    function add_op(){
+        document.getElementById("operation").value= "+";
+    }
+
+    function sub_op(){
+        document.getElementById("operation").value="-";
+    }
+
+        function multi_op(){
+        document.getElementById("operation").value= "*";
+    }
+
+    function div_op(){
+        document.getElementById("operation").value="/";
+    }
+
+    function toCBNS(){
+        document.getElementById("operation").value="<<";
+    }
+
+    function toComlex(){
+        document.getElementById("operation").value="<";
+    }
+
+	function clearText(txt)
+	{
+	    document.getElementById("input_text").value="";
+	    document.getElementById("A_real").value="";
+	    document.getElementById("A_imag").value="";
+	    document.getElementById("B_real").value="";
+	    document.getElementById("B_imag").value="";
+	    document.getElementById("C_real").value="";
+	    document.getElementById("C_imag").value="";
+	    document.getElementById("str").value="";
+	}
+
+
+</script>
