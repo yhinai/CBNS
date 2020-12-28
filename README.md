@@ -1,3 +1,5 @@
 # CBNS
  
-The source code is used to bulid CBNS Calculator website, available at http://cbns-calculator.herokuapp.com/.
+The source code of this project is used to build CBNS Calculator website, available at http://cbns-calculator.herokuapp.com/.
+
+ 
