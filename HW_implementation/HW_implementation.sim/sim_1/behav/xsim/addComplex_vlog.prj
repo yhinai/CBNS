@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../HW_implementation.srcs/sources_1/new/Add_1_bit.v" \
+
+sv xil_defaultlib  \
+"../../../../HW_implementation.srcs/sources_1/new/bit_propagate.sv" \
+"../../../../HW_implementation.srcs/sources_1/new/addComplex.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
