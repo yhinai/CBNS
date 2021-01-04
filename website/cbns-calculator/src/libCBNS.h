@@ -125,18 +125,19 @@ string print(complex<float> A, complex<float> B, string Res, string operation)
 
     string op = " " + operation + " ";
     complex<float> ResComplex = CBNStoDec(Res);
+    
+    stringstream ss;
+    ss << std::hex << std::stoll(decToCBNS(A), NULL, 2) << op << std::hex << std::stoll(decToCBNS(B), NULL, 2) << " = " << std::hex << std::stoll(toHex(Res), NULL, 2);
 
     string ResStr = "(" + tostr(A.real()) + "," + tostr(A.imag()) + "j)" + op + "(" + tostr(B.real()) + "," + tostr(B.imag()) + "j) = "
                             + decToCBNS(A) + op + decToCBNS(B) + " = "
                             + Res + " = (" + tostr(ResComplex.real()) + "," + tostr(ResComplex.imag()) + "j)" + "\n";
-    ResStr += "(" + tostr(A.real()) + "," + tostr(A.imag()) + "j)" + op + "(" + tostr(B.real()) + "," + tostr(B.imag()) + "j) = "
-                            + toHex(decToCBNS(A)) + op + toHex(decToCBNS(B)) + " = "
-                            + toHex(Res) + " = (" + tostr(ResComplex.real()) + "," + tostr(ResComplex.imag()) + "j)" + "\n\n";
-
+    ResStr += ss + "\n\n";
+     
     return ResStr;
 
 }
-
+//std::cout << std::hex << std::stoll("1110100100100", NULL, 2);
 complex<float> adjFPComplex(complex<float> Num){
     if (abs(Num.real()) < 1e-10) Num = complex<float>(0,Num.imag());
     if (abs(Num.imag()) < 1e-10) Num = complex<float>(Num.real(), 0);
