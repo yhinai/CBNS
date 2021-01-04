@@ -5,6 +5,8 @@
 #include <string>
 #include <complex> 
 #include <math.h>
+#include <sstream>
+
 
 using namespace std;  
 
@@ -91,50 +93,21 @@ template <typename T> string tostr(const T& t) {
 } 
 
 
-const char lookuparrbin2hex[] = {'0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'};
-
-char convert_bin2hex(string bits)
-{
-	unsigned int result = 0;
-	unsigned int shifter0 = 0;
-	unsigned int shifter1 = 1;
-
-	for(int n=0; n < bits.length(); n++)
-	{
-		result <<= 1; //shift result to the left by 1
-		if(bits[n] == '1') result = (result | shifter1);
-		else result = (result | shifter0);
-	}
-	return lookuparrbin2hex[result];
-}
-
-string toHex(string rowresult)
-{
-	std::string endresult = "";
-	for(int i = 0; i < rowresult.length(); i = i+4)
-	{
-		endresult += convert_bin2hex(rowresult.substr(i,4));
-	}
-	return endresult;
-}
-
-
-
 string print(complex<float> A, complex<float> B, string Res, string operation)
 {
 
     string op = " " + operation + " ";
     complex<float> ResComplex = CBNStoDec(Res);
     
-    stringstream ss;
-    ss << std::hex << std::stoll(decToCBNS(A), NULL, 2) << op << std::hex << std::stoll(decToCBNS(B), NULL, 2) << " = " << std::hex << std::stoll(toHex(Res), NULL, 2);
+    stringstream resStr;
 
-    string ResStr = "(" + tostr(A.real()) + "," + tostr(A.imag()) + "j)" + op + "(" + tostr(B.real()) + "," + tostr(B.imag()) + "j) = "
-                            + decToCBNS(A) + op + decToCBNS(B) + " = "
-                            + Res + " = (" + tostr(ResComplex.real()) + "," + tostr(ResComplex.imag()) + "j)" + "\n";
-    ResStr += ss + "\n\n";
-     
-    return ResStr;
+    resStr << "(" << tostr(A.real()) << "," << tostr(A.imag()) << "j)" << op << "(" << tostr(B.real()) << "," << tostr(B.imag()) << "j) = "
+                            << decToCBNS(A) << op << decToCBNS(B) << " = "
+                            << Res << " = (" << tostr(ResComplex.real()) << "," << tostr(ResComplex.imag()) << "j)" << "\n";
+    
+    resStr << std::hex << std::stoll(decToCBNS(A), NULL, 2) << op << std::hex << std::stoll(decToCBNS(B), NULL, 2) << " = " << std::hex << std::stoll((Res), NULL, 2) << endl << endl;
+
+    return resStr.str();
 
 }
 //std::cout << std::hex << std::stoll("1110100100100", NULL, 2);
