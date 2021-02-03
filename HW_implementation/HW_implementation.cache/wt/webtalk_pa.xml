@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Mon Jan  4 11:32:11 2021">
+<application name="pa" timeStamp="Wed Feb  3 10:14:29 2021">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="3850c6b7c6e6448cbe929e39c4b9f9a2" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -20,7 +20,8 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="AddSources" value="4" type="JavaHandler"/>
 <property name="FileExit" value="6" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
-<property name="RunSynthesis" value="1" type="JavaHandler"/>
+<property name="RunImplementation" value="1" type="JavaHandler"/>
+<property name="RunSynthesis" value="2" type="JavaHandler"/>
 <property name="SaveAllFiles" value="1" type="JavaHandler"/>
 <property name="SaveFileProxyHandler" value="5" type="JavaHandler"/>
 <property name="SetTopNode" value="1" type="JavaHandler"/>
@@ -36,9 +37,11 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ui.views.c.h.f" value="2" type="JavaHandler"/>
 </item>
 <item name="Gui Handlers">
+<property name="AbstractFileView_READ_ONLY" value="1" type="GuiHandlerData"/>
+<property name="AbstractFileView_RELOAD" value="2" type="GuiHandlerData"/>
 <property name="AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES" value="1" type="GuiHandlerData"/>
 <property name="BaseDialog_CANCEL" value="4" type="GuiHandlerData"/>
-<property name="BaseDialog_OK" value="266" type="GuiHandlerData"/>
+<property name="BaseDialog_OK" value="270" type="GuiHandlerData"/>
 <property name="ClosePlanner_YES" value="1" type="GuiHandlerData"/>
 <property name="CmdMsgDialog_MESSAGES" value="1" type="GuiHandlerData"/>
 <property name="CmdMsgDialog_OK" value="18" type="GuiHandlerData"/>
@@ -51,10 +54,10 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="FPGAChooser_FAMILY" value="1" type="GuiHandlerData"/>
 <property name="FPGAChooser_FPGA_TABLE" value="31" type="GuiHandlerData"/>
 <property name="FPGAChooser_PACKAGE" value="1" type="GuiHandlerData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="333" type="GuiHandlerData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="345" type="GuiHandlerData"/>
 <property name="FindAndReplaceAllDialog_CLOSE" value="4" type="GuiHandlerData"/>
 <property name="FindAndReplaceAllDialog_FIND" value="4" type="GuiHandlerData"/>
-<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="34" type="GuiHandlerData"/>
+<property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="35" type="GuiHandlerData"/>
 <property name="GettingStartedView_CREATE_NEW_PROJECT" value="1" type="GuiHandlerData"/>
 <property name="GraphicalView_ZOOM_FIT" value="7" type="GuiHandlerData"/>
 <property name="GraphicalView_ZOOM_IN" value="5" type="GuiHandlerData"/>
@@ -92,6 +95,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ProgressDialog_CANCEL" value="3" type="GuiHandlerData"/>
 <property name="ProjectNameChooser_CHOOSE_PROJECT_LOCATION" value="3" type="GuiHandlerData"/>
 <property name="ProjectNameChooser_PROJECT_NAME" value="2" type="GuiHandlerData"/>
+<property name="RDICommands_COPY" value="1" type="GuiHandlerData"/>
 <property name="RDICommands_REDO" value="4" type="GuiHandlerData"/>
 <property name="RDICommands_UNDO" value="37" type="GuiHandlerData"/>
 <property name="RDIViews_WAVEFORM_VIEWER" value="125" type="GuiHandlerData"/>
@@ -116,9 +120,9 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="WaveformView_PREVIOUS_TRANSITION" value="1" type="GuiHandlerData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="42" type="GuiMode"/>
+<property name="GuiMode" value="1" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="35" type="TclMode"/>
+<property name="TclMode" value="0" type="TclMode"/>
 </item>
 </section>
 </application>

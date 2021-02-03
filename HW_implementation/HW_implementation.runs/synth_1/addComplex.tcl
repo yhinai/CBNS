@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.runs/synth_1/addComplex.tcl"
+  variable script "C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.runs/synth_1/addComplex.tcl"
   variable category "vivado_synth"
 }
 
@@ -70,26 +70,25 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
-set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xa7a35tcpg236-1I
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.cache/wt [current_project]
-set_property parent.project_path C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.cache/wt [current_project]
+set_property parent.project_path C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.cache/ip [current_project]
+set_property ip_output_repo c:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib -sv {
-  C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/bit_propagate.sv
-  C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/addComplex.sv
+  C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/bit_propagate.sv
+  C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/addComplex.sv
 }
-read_verilog -library xil_defaultlib C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/Add_1_bit.v
+read_verilog -library xil_defaultlib C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/Add_1_bit.v
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -105,6 +104,9 @@ close [open __synthesis_is_running__ w]
 OPTRACE "synth_design" START { }
 synth_design -top addComplex -part xa7a35tcpg236-1I
 OPTRACE "synth_design" END { }
+if { [get_msg_config -count -severity {CRITICAL WARNING}] > 0 } {
+ send_msg_id runtcl-6 info "Synthesis results are not added to the cache due to CRITICAL_WARNING"
+}
 
 
 OPTRACE "write_checkpoint" START { CHECKPOINT }

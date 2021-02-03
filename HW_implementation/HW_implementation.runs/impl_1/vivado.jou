@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Feb  3 10:14:37 2021
+# Process ID: 6936
+# Current directory: C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.runs/impl_1
+# Command line: vivado.exe -log addComplex.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source addComplex.tcl -notrace
+# Log file: C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.runs/impl_1/addComplex.vdi
+# Journal file: C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source addComplex.tcl -notrace

@@ -21,17 +21,17 @@
 
 
 module bit_propagate (
-    input operand_1,
-    input operand_2,
-    input carryIn_0,
-    input carryIn_1,
-    output out,
+    input op1,
+    input op2,
+    input carryIn1,
+    input carryIn2,
+    output sum,
     output carryOut
     );
     
     
-    assign out = operand_1 ^ operand_2 ^ carryIn_0 ^ carryIn_1;
-    assign carryOut = operand_1 * operand_2 + operand_1 * carryIn_0 + operand_1 * carryIn_1 + operand_2 * carryIn_0 + operand_2 * carryIn_1 + carryIn_0 * carryIn_1;
+    assign sum = op1 ^ op2 ^ carryIn1 ^ carryIn2;
+    assign carryOut = op1 * op2 + op1 * carryIn1 + op1 * carryIn2 + op2 * carryIn1 + op2 * carryIn2 + carryIn1 * carryIn2;
 
 
 endmodule
