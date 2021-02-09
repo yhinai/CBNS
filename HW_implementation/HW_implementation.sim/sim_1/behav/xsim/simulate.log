@@ -1,4 +1,4 @@
-Vivado Simulator 2020.1.1
+Vivado Simulator 2020.2
 Time resolution is 1 ps
 (000f + 000f = 0064)
 
@@ -20,4 +20,24 @@ Time resolution is 1 ps
 
 (00be + 0006 = 00b0)
 
-$finish called at time : 110 ns : File "C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sim_1/new/addComplex_tb.sv" Line 56
+(000f + 000f = 007d)
+
+(00ff + 00ff = 0bbd)
+
+(0fff + 0fff = 37bd)
+
+(ffff + ffff = f7bd)
+
+(001c + 000a = 0758)
+
+(00ce + 0088 = 0970)
+
+(0c3e + 00d8 = 5410)
+
+(023a + 00ae = aa4c)
+
+(000c + 000c = 01d0)
+
+(00be + 0006 = 74a4)
+
+$finish called at time : 210 ns : File "C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sim_1/new/addComplex_tb.sv" Line 73

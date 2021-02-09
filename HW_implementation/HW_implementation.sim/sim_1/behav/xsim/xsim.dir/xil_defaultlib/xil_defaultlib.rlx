@@ -1,9 +1,11 @@
 0.7
-2020.1.1
-Aug  5 2020
-23:19:43
-C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim/glbl.v,1590624368,verilog,,,,glbl,,,,,,,,
-C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sim_1/new/addComplex_tb.sv,1609701069,systemVerilog,,,,addComplex_tb,,,,,,,,
-C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/Add_1_bit.v,1609699579,verilog,,,,Add_1_bit,,,,,,,,
-C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/addComplex.sv,1609699524,systemVerilog,,C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/bit_propagate.sv,,addComplex,,,,,,,,
-C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/bit_propagate.sv,1609697472,systemVerilog,,C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sim_1/new/addComplex_tb.sv,,bit_propagate,,,,,,,,
+2020.2
+Nov 18 2020
+09:47:47
+C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim/glbl.v,1612329674,verilog,,,,glbl,,uvm,,,,,,
+C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sim_1/new/addComplex_tb.sv,1612898145,systemVerilog,,,,addComplex_tb,,uvm,,,,,,
+C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/ALU.sv,1612897943,systemVerilog,,C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/addComplex.sv,,ALU,,uvm,,,,,,
+C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/Add_1_bit.v,1612329674,verilog,,,,Add_1_bit,,uvm,,,,,,
+C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/addComplex.sv,1612329674,systemVerilog,,C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/bit_propagate.sv,,addComplex,,uvm,,,,,,
+C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/bit_propagate.sv,1612332350,systemVerilog,,C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/multiComplex.sv,,bit_propagate,,uvm,,,,,,
+C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sources_1/new/multiComplex.sv,1612853554,systemVerilog,,C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.srcs/sim_1/new/addComplex_tb.sv,,multiComplex,,uvm,,,,,,

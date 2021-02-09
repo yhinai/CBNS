@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
-# Webtalk v2020.1.1 (64-bit)
-# SW Build 2960000 on Wed Aug  5 22:57:20 MDT 2020
-# IP Build 2956692 on Thu Aug  6 01:41:30 MDT 2020
-# Start of session at: Sun Jan  3 23:09:08 2021
-# Process ID: 26896
-# Current directory: C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim/xsim.dir/addComplex_tb_behav/webtalk/xsim_webtalk.tcl -notrace
-# Log file: C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim/webtalk.log
-# Journal file: C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim\webtalk.jou
+# Webtalk v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Feb  9 10:51:33 2021
+# Process ID: 17288
+# Current directory: C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim/xsim.dir/addComplex_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
-source C:/Users/ALHINAI/Documents/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim/xsim.dir/addComplex_tb_behav/webtalk/xsim_webtalk.tcl -notrace
+source C:/Users/alhinai/GitHub/CBNS/HW_implementation/HW_implementation.sim/sim_1/behav/xsim/xsim.dir/addComplex_tb_behav/webtalk/xsim_webtalk.tcl -notrace

@@ -3,8 +3,10 @@ verilog xil_defaultlib  \
 "../../../../HW_implementation.srcs/sources_1/new/Add_1_bit.v" \
 
 sv xil_defaultlib  \
+"../../../../HW_implementation.srcs/sources_1/new/ALU.sv" \
 "../../../../HW_implementation.srcs/sources_1/new/addComplex.sv" \
 "../../../../HW_implementation.srcs/sources_1/new/bit_propagate.sv" \
+"../../../../HW_implementation.srcs/sources_1/new/multiComplex.sv" \
 "../../../../HW_implementation.srcs/sim_1/new/addComplex_tb.sv" \
 
 # compile glbl module
